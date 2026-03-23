@@ -14,13 +14,13 @@ export const HeaderContainer = styled.header`
   .container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center;    /* Centraliza o texto das linhas do h1 */
+    align-items: center;
+    text-align: center;
   }
 
   h1 {
     font-weight: 900;
-    font-size: 36px;
+    font-size: 18px;
     line-height: 42px;
     color: ${colors.marrom};
     margin-top: 138px;
