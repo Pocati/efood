@@ -1,0 +1,26 @@
+import styled from 'styled-components'
+import logo from '../../images/logo.png'
+import { colors } from '../../Styles/GlobalStyles'
+
+export const HeaderContainer = styled.header`
+  background-color: ${colors.begeClaro};
+  background-image: ${logo};
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    width: 100%;
+    margin-top: 138px;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+    max-width: 540px;
+  }
+`
+
+export const Logo = styled.img`
+  width: 125px;
+`
