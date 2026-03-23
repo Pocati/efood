@@ -43,13 +43,10 @@ const Cart = () => {
                     </>
                 )}
 
-                {/* TELA 1: ENTREGA */}
                 {step === 1 && <Delivery />}
 
-                {/* TELA 2: PAGAMENTO */}
                 {step === 2 && <Payment />}
 
-                {/* TELA 3: SUCESSO */}
                 {step === 3 && <Success />}
             </Sidebar>
         </CartContainer>

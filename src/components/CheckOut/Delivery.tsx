@@ -38,7 +38,6 @@ const Delivery = () => {
                 </div>
 
                 <div className="margin-top">
-                    {/* O onClick abaixo é o que faz o Pagamento aparecer! */}
                     <Botao type="button" onClick={() => dispatch(setStep(2))}>
                         Continuar com o pagamento
                     </Botao>

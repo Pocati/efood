@@ -11,13 +11,21 @@ export const HeaderContainer = styled.header`
   align-items: center;
   text-align: center;
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center;    /* Centraliza o texto das linhas do h1 */
+  }
+
   h1 {
-    width: 100%;
-    margin-top: 138px;
     font-weight: 900;
     font-size: 36px;
     line-height: 42px;
+    color: ${colors.marrom};
+    margin-top: 138px;
     max-width: 540px;
+    width: 100%;
   }
 `
 
