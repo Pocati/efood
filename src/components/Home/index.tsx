@@ -1,12 +1,20 @@
 import { useGetRestaurantsQuery } from '../../services/api'
 import RestaurantList from '../../components/RestaurantList'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 const Home = () => {
     const { data: restaurantes, isLoading } = useGetRestaurantsQuery()
 
-    if (isLoading) return <h3>Carregando restaurantes...</h3>
+    if (isLoading) return <div className="container"><h3>Carregando...</h3></div>
 
-    return <RestaurantList restaurants={restaurantes || []} />
+    return (
+        <>
+            <Header />
+            <RestaurantList restaurants={restaurantes || []} />
+            <Footer />
+        </>
+    )
 }
 
 export default Home
