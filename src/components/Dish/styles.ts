@@ -70,13 +70,11 @@ export const ModalContent = styled.div`
   color: ${colors.branco};
   padding: 32px;
   display: flex;
-    max-width: 910px;
-  width: 100%;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   img {
-    width: 280px;
+    max-width: 280px;
     height: 280px;
     object-fit: cover;
     margin-right: 24px;

@@ -1,32 +1,16 @@
 import { useState } from 'react'
-import closeIcon from '../../../public/close.png'
-import { Card, Imagem, Titulo, Descricao, Botao, Modal, ModalContent } from './styles'
-import pizza from '../../images/pizza.png'
-
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
+import { Card, Modal, ModalContent } from './styles'
+import { Botao } from './styles'
+import { Overlay } from '../Cart/styles'
 
-type Props = {
-    foto: string
-    nome: string
-    descricao: string
-    preco: number
-}
-
-const Dish = ({ foto, nome, descricao, preco }: Props) => {
+const Dish = ({ id, foto, nome, descricao, porcao, preco }: any) => {
     const [modalAberta, setModalAberta] = useState(false)
     const dispatch = useDispatch()
 
     const addToCart = () => {
-        dispatch(
-            add({
-                id: Math.random(),
-                foto,
-                nome,
-                preco,
-                descricao
-            })
-        )
+        dispatch(add({ id, foto, nome, preco }))
         dispatch(open())
         setModalAberta(false)
     }
@@ -34,27 +18,35 @@ const Dish = ({ foto, nome, descricao, preco }: Props) => {
     return (
         <>
             <Card>
-                <Imagem src={pizza} alt={nome} />
-                <Titulo>{nome}</Titulo>
-                <Descricao>{descricao}</Descricao>
+                <img src={foto} alt={nome} />
+                <h3>{nome}</h3>
+                <p>{descricao.substring(0, 150)}...</p>
                 <Botao onClick={() => setModalAberta(true)}>Mais detalhes</Botao>
             </Card>
 
-            <Modal className={modalAberta ? 'visible' : ''}>
-                <div className="overlay" onClick={() => setModalAberta(false)}></div>
-                <ModalContent>
-                    <img src={foto} alt={nome} />
-                    <div>
-                        <header>
-                            <h4>{nome}</h4>
-                            <img src={closeIcon} onClick={() => setModalAberta(false)} alt="Fechar" />
-                        </header>
-                        <p>{descricao}</p>
-                        <p>Serve: de 2 a 3 pessoas</p>
-                        <Botao onClick={addToCart}>Adicionar ao carrinho - R$ 60,90</Botao>
-                    </div>
-                </ModalContent>
-            </Modal>
+            {modalAberta && (
+                <Modal className="visible">
+                    <Overlay onClick={() => setModalAberta(false)} />
+                    <ModalContent className="container">
+                        <img src={foto} alt={nome} />
+                        <div>
+                            <header>
+                                <h4>{nome}</h4>
+                                <img
+                                    src="https://raw.githubusercontent.com/ebac-cursos/efood/main/src/assets/close.svg"
+                                    onClick={() => setModalAberta(false)}
+                                    alt="Fechar"
+                                />
+                            </header>
+                            <p>{descricao}</p>
+                            <p>Serve: {porcao}</p>
+                            <Botao onClick={addToCart}>
+                                Adicionar ao carrinho - R$ {preco.toFixed(2).replace('.', ',')}
+                            </Botao>
+                        </div>
+                    </ModalContent>
+                </Modal>
+            )}
         </>
     )
 }

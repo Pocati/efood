@@ -30,5 +30,6 @@ export const HeaderContainer = styled.header`
 `
 
 export const Logo = styled.img`
+  margin-top: 64px;
   width: 125px;
 `
