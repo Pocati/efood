@@ -10,7 +10,7 @@ export const CartContainer = styled.div`
   height: 100%;
   display: flex;
   justify-content: flex-end;
-  z-index: 1;
+  z-index: 2;
   display: none;
 
   &.is-open {
@@ -77,11 +77,11 @@ export const CartItem = styled.li`
   }
 
   button {
-    background-image: ${lixeira};
+    background-image: url(${lixeira});
     width: 16px;
     height: 16px;
     border: none;
-    background-color: transparent;
+    background-color: #fff;
     position: absolute;
     bottom: 8px;
     right: 8px;

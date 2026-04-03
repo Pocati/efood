@@ -20,7 +20,7 @@ export const HeaderContainer = styled.header`
 
   h1 {
     font-weight: 900;
-    font-size: 18px;
+    font-size: 36px;
     line-height: 42px;
     color: ${colors.marrom};
     margin-top: 138px;

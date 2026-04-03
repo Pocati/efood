@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 import { colors } from '../../Styles/GlobalStyles'
 
-export const Imagem = styled.div`
+export const BannerContainer = styled.div`
   width: 100%;
   height: 280px;
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  
   position: relative;
-  padding-top: 25px;
-  padding-bottom: 32px;
+  padding: 32px 0;
 
   &::after {
     position: absolute;
@@ -19,10 +20,11 @@ export const Imagem = styled.div`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     content: '';
+    z-index: 1;
   }
 
   .container {
-    z-index: 1;
+    z-index: 2;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -31,14 +33,16 @@ export const Imagem = styled.div`
   }
 `
 
-export const Categoria = styled.span`
+export const Tipo = styled.p`
   font-weight: 100;
   font-size: 32px;
   color: ${colors.branco};
+  z-index: 2;
 `
 
 export const Titulo = styled.h2`
   font-weight: 900;
   font-size: 32px;
   color: ${colors.branco};
+  z-index: 2;
 `

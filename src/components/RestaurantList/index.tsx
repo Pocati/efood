@@ -6,20 +6,23 @@ type Props = {
 }
 
 const RestaurantList = ({ restaurants }: Props) => (
-    <List>
-        {restaurants.map((res) => (
-            <li key={res.id}>
-                <Restaurant
-                    titulo={res.titulo}
-                    tipo={res.tipo}
-                    avaliacao={res.avaliacao}
-                    descricao={res.descricao}
-                    capa={res.capa}
-                    destacado={res.destacado}
-                />
-            </li>
-        ))}
-    </List>
+    <div className="container">
+        <List>
+            {restaurants.map((res) => (
+                <li key={res.id}>
+                    <Restaurant
+                        id={res.id}
+                        titulo={res.titulo}
+                        capa={res.capa}
+                        avaliacao={res.avaliacao}
+                        descricao={res.descricao}
+                        tipo={res.tipo}
+                        destacado={res.destacado}
+                    />
+                </li>
+            ))}
+        </List>
+    </div>
 )
 
 export default RestaurantList

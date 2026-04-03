@@ -3,10 +3,43 @@ import { colors } from '../../Styles/GlobalStyles'
 
 export const Card = styled.div`
   background-color: ${colors.marrom};
-  padding: 8px;
   color: ${colors.begeClaro};
+  padding: 8px;
   display: flex;
   flex-direction: column;
+  height: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 167px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  h3 {
+    font-weight: 900;
+    font-size: 16px;
+    margin: 8px 0;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 8px;
+    flex: 1;
+  }
+
+  button {
+    background-color: ${colors.begeClaro};
+    color: ${colors.marrom};
+    border: none;
+    padding: 4px 0;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+  }
 `
 
 export const Imagem = styled.img`

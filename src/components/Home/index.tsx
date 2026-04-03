@@ -6,12 +6,20 @@ import Footer from '../../components/Footer'
 const Home = () => {
     const { data: restaurantes, isLoading } = useGetRestaurantsQuery()
 
-    if (isLoading) return <div className="container"><h3>Carregando...</h3></div>
+    if (isLoading) {
+        return (
+            <div className="container">
+                <h3>Carregando...</h3>
+            </div>
+        )
+    }
 
     return (
         <>
             <Header />
-            <RestaurantList restaurants={restaurantes || []} />
+            <div className="container">
+                {restaurantes && <RestaurantList restaurants={restaurantes} />}
+            </div>
             <Footer />
         </>
     )

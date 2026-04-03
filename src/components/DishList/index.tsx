@@ -1,23 +1,23 @@
 import Dish from '../Dish'
-import { List, Container } from './styles'
+import { List } from './styles'
 
-type Props = {
-    dishes: any[]
-}
-
-const DishList = ({ dishes }: Props) => (
-    <Container className="container">
+const DishList = ({ dishes }: { dishes: any[] }) => (
+    <div className="container">
         <List>
-            {dishes.map((dish) => (
-                <li key={dish.id}>
+            {dishes.map((prato) => (
+                <li key={prato.id}>
                     <Dish
-                        nome={dish.nome}
-                        descricao={dish.descricao}
-                        foto={dish.foto} preco={0} />
+                        id={prato.id}
+                        nome={prato.nome}
+                        descricao={prato.descricao}
+                        foto={prato.foto}
+                        preco={prato.preco}
+                        porcao={prato.porcao}
+                    />
                 </li>
             ))}
         </List>
-    </Container>
+    </div>
 )
 
 export default DishList
