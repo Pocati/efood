@@ -3,6 +3,7 @@ import { useGetRestaurantQuery } from '../../services/api'
 import DishList from '../../components/DishList'
 import HeaderProfile from '../../components/HeaderProfile'
 import Banner from '../../components/Banner'
+import Footer from '../../components/Footer'
 
 const Perfil = () => {
     const { id } = useParams()
@@ -24,6 +25,7 @@ const Perfil = () => {
                 titulo={restaurante.titulo}
             />
             <DishList dishes={restaurante.cardapio} />
+            <Footer />
         </>
     )
 }

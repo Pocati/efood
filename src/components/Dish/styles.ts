@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../Styles/GlobalStyles'
+import close from '../../../public/close.png'
 
 export const Card = styled.div`
   background-color: ${colors.marrom};
@@ -138,6 +139,14 @@ export const ModalContent = styled.div`
   }
 `
 
-export const CloseIcon = styled.img`
-  background-color: #fff;
+export const CloseIcon = styled.div`
+  background-image: url(${close});
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `

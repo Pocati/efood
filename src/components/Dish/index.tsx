@@ -5,6 +5,8 @@ import { Card, Modal, ModalContent } from './styles'
 import { Botao } from './styles'
 import { Overlay } from '../Cart/styles'
 
+import { CloseIcon } from './styles'
+
 const Dish = ({ id, foto, nome, descricao, porcao, preco }: any) => {
     const [modalAberta, setModalAberta] = useState(false)
     const dispatch = useDispatch()
@@ -32,11 +34,8 @@ const Dish = ({ id, foto, nome, descricao, porcao, preco }: any) => {
                         <div>
                             <header>
                                 <h4>{nome}</h4>
-                                <img
-                                    src="https://raw.githubusercontent.com/ebac-cursos/efood/main/src/assets/close.svg"
-                                    onClick={() => setModalAberta(false)}
-                                    alt="Fechar"
-                                />
+                                <CloseIcon
+                                    onClick={() => setModalAberta(false)} />
                             </header>
                             <p>{descricao}</p>
                             <p>Serve: {porcao}</p>
