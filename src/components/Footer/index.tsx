@@ -1,6 +1,6 @@
 import { FooterContainer, SectionSocial, Logo, Disclaimer } from './styles'
 import logo from '../../images/logo.png'
-import instagram from '../../images/Instagram.png'
+import instagram from '../../images/instagram.png'
 import facebook from '../../images/facebook.png'
 import twitter from '../../images/twitter.png'
 
