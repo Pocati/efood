@@ -15,38 +15,49 @@ const Cart = () => {
 
     const total = items.reduce((acc, item) => acc + item.preco, 0)
 
+    if (!isOpen) return null
+
     return (
         <CartContainer className={isOpen ? 'is-open' : ''}>
             <Overlay onClick={() => dispatch(close())} />
             <Sidebar>
                 {step === 0 && (
                     <>
-                        <ul>
-                            {items.map((item) => (
-                                <CartItem key={item.id}>
-                                    <img src={item.foto} alt={item.nome} />
-                                    <div>
-                                        <h3>{item.nome}</h3>
-                                        <span>R$ {item.preco.toFixed(2).replace('.', ',')}</span>
-                                    </div>
-                                    <button onClick={() => dispatch(remove(item.id))} type="button" />
-                                </CartItem>
-                            ))}
-                        </ul>
-                        <Prices>
-                            <span>Valor total</span>
-                            <span>R$ {total.toFixed(2).replace('.', ',')}</span>
-                        </Prices>
-                        <Botao onClick={() => dispatch(setStep(1))}>
-                            Continuar com a entrega
-                        </Botao>
+                        {items.length > 0 ? (
+                            <>
+                                <ul>
+                                    {items.map((item) => (
+                                        <CartItem key={item.id}>
+                                            <img src={item.foto} alt={item.nome} />
+                                            <div>
+                                                <h3>{item.nome}</h3>
+                                                <span>R$ {item.preco.toFixed(2).replace('.', ',')}</span>
+                                            </div>
+                                            <button
+                                                onClick={() => dispatch(remove(item.id))}
+                                                type="button"
+                                            />
+                                        </CartItem>
+                                    ))}
+                                </ul>
+                                <Prices>
+                                    <span>Valor total</span>
+                                    <span>R$ {total.toFixed(2).replace('.', ',')}</span>
+                                </Prices>
+                                <Botao onClick={() => dispatch(setStep(1))}>
+                                    Continuar com a entrega
+                                </Botao>
+                            </>
+                        ) : (
+                            <p className="empty-cart">
+                                O carrinho está vazio. Adicione pelo menos um prato para continuar.
+                            </p>
+                        )}
                     </>
                 )}
 
                 {step === 1 && <Delivery />}
-
                 {step === 2 && <Payment />}
-
                 {step === 3 && <Success />}
             </Sidebar>
         </CartContainer>
