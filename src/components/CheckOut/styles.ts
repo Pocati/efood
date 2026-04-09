@@ -25,7 +25,7 @@ export const FormContainer = styled.div`
       background-color: ${colors.begeClaro};
       border: 1px solid ${colors.begeClaro};
       height: 32px;
-      padding: 0 8px;
+      padding: 0px;
       font-weight: bold;
       color: #4b4b4b;
     }
@@ -33,7 +33,7 @@ export const FormContainer = styled.div`
 
   .flex-group {
     display: flex;
-    gap: 34px;
+    gap: 16px;
     
     .form-group {
       width: 100%;

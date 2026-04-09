@@ -66,12 +66,16 @@ export const Botao = styled.button`
   background-color: ${colors.begeClaro};
   color: ${colors.marrom};
   border: none;
-  padding: 4px;
-  font-weight: bold;
-  font-size: 14px;
+  padding: 6px 8px;
   cursor: pointer;
-  width: 100%;
+  transition: all 0.3s ease;
   margin-bottom: 16px;
+
+  &:hover {
+    background-color: ${colors.marrom};
+    color: ${colors.branco};
+    box-shadow: 0 0 0 2px ${colors.marrom}; 
+  }
 `
 
 export const Modal = styled.div`
