@@ -3,8 +3,9 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 type Product = {
     id: number
     preco: number
+    nome: string
+    foto: string
 }
-
 type DeliveryData = {
     receiver: string
     address: {
