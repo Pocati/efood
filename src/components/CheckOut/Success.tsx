@@ -8,7 +8,9 @@ import { FormContainer } from './styles'
 const Success = () => {
     const dispatch = useDispatch()
     const { deliveryData } = useSelector((state: RootState) => state.cart)
-    const [, { data }] = usePurchaseMutation()
+    const [, { data }] = usePurchaseMutation({
+        fixedCacheKey: 'checkout-mutation',
+    })
 
     const handleFinish = () => {
         dispatch(clear())
@@ -18,16 +20,24 @@ const Success = () => {
     return (
         <FormContainer>
             <h3>Pedido realizado - {data?.orderId}</h3>
+
             <p>
-                Estamos felizes em informar que o pedido de <strong>{deliveryData.receiver}</strong> já está em preparação e será entregue em:
+                Estamos felizes em informar que o pedido de <strong>{deliveryData.receiver}</strong> já está em processo de preparação e, em breve, será entregue no endereço:
             </p>
+
             <p className="margin-top">
                 {deliveryData.address.description}, {deliveryData.address.number} - {deliveryData.address.city} <br />
                 CEP: {deliveryData.address.zipCode}
             </p>
+
             <p className="margin-top">
+                Gostaríamos de ressaltar que nossos entregadores não estão autorizados a realizar cobranças extras.
+            </p>
+
+            <p>
                 Esperamos que desfrute de uma experiência gastronômica prazerosa. Bom apetite!
             </p>
+
             <div className="margin-top">
                 <Botao onClick={handleFinish} type="button">
                     Concluir

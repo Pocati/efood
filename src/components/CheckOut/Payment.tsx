@@ -12,7 +12,9 @@ import { Botao } from '../Dish/styles'
 import { FormContainer } from './styles'
 
 const Payment = () => {
-    const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
+    const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation({
+        fixedCacheKey: 'checkout-mutation',
+    })
     const { items, deliveryData } = useSelector((state: RootState) => state.cart)
     const dispatch = useDispatch()
 
